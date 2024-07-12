@@ -39,11 +39,12 @@ public class Array_1
          	  sum=sum+b[i]	;
          	}
 			int sum_1= ((sum*gst)/100) ;
+			int total_amt=sum+sum_1;
 			System.out.println("------------------");
 			System.out.println("Total :"+sum);
 			System.out.println("GST :"+gst);
 			System.out.println("------------------");
-			System.out.println("Final Total :"+sum_1);
+			System.out.println("Final Total :"+total_amt);
 		}
 		else if( ch == 'N'||ch=='n')
         {
