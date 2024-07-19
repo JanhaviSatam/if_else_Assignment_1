@@ -219,6 +219,11 @@ public class SwitchCase_1 {
 		float maa=((salary_basic*12*ma)/100);
 		float oaa=((salary_basic*12*oa)/100);
 		float laa=((salary_basic/month_days)*leaves);
+		float ctc = ((salary_basic*12)+caa+maa+oaa);
+		float pt=(salary_basic-laa)-((salary_basic*12)*pro_tax)/100;
+		float td = (pt+laa)-salary_basic;
+		float te = caa+maa+oaa;
+		float ne=(te+salary_basic)-td;
 	System.out.println("Paid Days = "+(month_days-leaves)+" Days");
 	System.out.println("Basic Salary = "+salary_basic+"/-");
 	System.out.println("Total Working Days = "+month_days);
@@ -226,12 +231,12 @@ public class SwitchCase_1 {
 	System.out.println("Conveyance Allowance = "+caa+"/-");
 	System.out.println("Medical Allowance = "+maa+"/-");
 	System.out.println("Other Allowances = "+oaa);
-	System.out.println("CTC = ");
+	System.out.println("CTC = "+ctc);
 	System.out.println("Total Allowance = "+(caa+maa+oaa));
-	System.out.println("Professional Tax = ");
-	System.out.println("Total Deductions = ");
-	System.out.println("Total Earnings Allowance  Monthly = ");
-	System.out.println("Net Salary   = ");
+	System.out.println("Professional Tax = "+pt);
+	System.out.println("Total Deductions = "+td);
+	System.out.println("Total Earnings Allowance  Monthly = "+te);
+	System.out.println("Net Salary   = "+ne);
 	System.out.println("Month = "+month_n+"/"+year);
 	
 	}
