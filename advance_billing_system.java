@@ -1,42 +1,34 @@
 package janhavi;
 
-
-
 class order{
 	int orderId[], orderNumber[], amount[] , gst[];
 	String location[];
 	
 	order(int orderId[], int orderNumber[], int amount[] , int gst[],String location[])
 	{
+		this.orderId=orderId;
+		this.orderNumber=orderNumber;
+		this.amount=amount;
+		this.gst=gst;
+		this.location=location;
 		
 	}
 	void calaculateTotalAmount()
 	{
 		
 	}
-}
-
-class creditlimit1 extends order
-{
-	int totalClient[];
-	creditlimit1( int totalClient[],int orderId[], int orderNumber[], int amount[] , int gst[],String location[])
-	{
-		super(orderId, orderNumber, amount , gst);
-	}
 	
-	void displayClentDetails()
-	{
-		
-	}
 }
 
-class client1 extends creditlimit1{
+
+
+class client1 extends order{
 	String clientName[], clientCity[];
 	int clientCreditLimit[], totalCredit[];
 		
-	client1(String clientName[],String clientCity[],int clientCreditLimit[],int totalCredit[],int totalClient[], int orderId[], int orderNumber[], int amount[] , int gst[],String location[])
+	client1(String clientName[],String clientCity[],int clientCreditLimit[],int totalCredit[], int orderId[], int orderNumber[], int amount[] , int gst[],String location[])
 	{
-		super(totalClient,orderId,orderNumber,amount, gst,location);
+		super(orderId,orderNumber,amount, gst,location);
 		this.clientName=clientName;
 		
 		this.clientCity=clientCity;
@@ -45,15 +37,58 @@ class client1 extends creditlimit1{
 	}
 	void updateCredit()
 	{
-		System.out.println(clientCity);
+		
 	}
 	
 	void checkCreditLimit()
 	{
 		
 	}
+	
+	
+	
 }
-
+class creditlimit1 extends client1 
+{
+	int totalClient[];
+	creditlimit1( String clientName[],String clientCity[],int clientCreditLimit[],int totalCredit[],int totalClient[], int orderId[], int orderNumber[], int amount[] , int gst[],String location[])
+	{
+		super(clientName,clientCity,clientCreditLimit,totalCredit,orderId, orderNumber, amount , gst,location);
+	    this.totalClient=totalClient;
+	    
+	}
+	
+	
+	void displayClentDetails()
+	{
+		int i;
+		for(i=0;i<clientName.length;i++)
+		{
+		System.out.println("Client: "+clientName[i]);
+		System.out.println("City: "+clientCity[i]);
+		System.out.println("__________________________");
+	}
+//		order a =new order( orderId, orderNumber ,amount  ,gst, location);
+//		for( i=0;i<clientName.length;i++)
+//		{
+//			System.out.println("Order ID: "+a.orderId);
+//			System.out.println("Order Number: "+a.orderNumber);
+//		    System.out.println("Location: "+a.location);
+//		    System.out.println("GSt: "+a.gst);
+//		    System.out.println("______________________________");
+//		    
+//		}
+//		for( i=0;i<clientName.length;i++)
+//			{
+//				System.out.println("Order ID: "+orderId);
+//				System.out.println("Order Number: "+orderNumber);
+//			    System.out.println("Location: "+location);
+//			    System.out.println("GSt: "+gst);
+//			    System.out.println("______________________________");
+//			    
+//			}	
+	}
+}
 public class advance_billing_system {
 
 	public static void main(String[] args) {
@@ -71,9 +106,10 @@ public class advance_billing_system {
     int gst[]= {18,20,18,20};
    
     String location[]= {"Goregaon","Satara","Malad","Kandivali"};
-    client1 ob = new client1(clientName,clientCity,clientCreditLimit,totalCredit,totalClient,orderId, orderNumber, amount , gst,location);
+    creditlimit1 ob = new creditlimit1(clientName,clientCity,clientCreditLimit,totalCredit,totalClient,orderId, orderNumber, amount , gst,location);
     
-     ob.updateCredit();
+     ob.displayClentDetails();
+     ob.display();
 	}
 
 }
